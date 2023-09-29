@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
-  const MainDrawer({super.key});
+  const MainDrawer({super.key, required this.onSelectScreen});
+
+  final void Function(String identifier) onSelectScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +11,7 @@ class MainDrawer extends StatelessWidget {
         child: Column(
           children: [
             DrawerHeader(
-            padding:const EdgeInsets.all(18),
+            padding: const EdgeInsets.all(18),
             decoration: BoxDecoration(
               gradient: LinearGradient(colors: [
                 Theme.of(context).colorScheme.primaryContainer,
@@ -35,16 +37,16 @@ class MainDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.ramen_dining_rounded),
               title: Text("Meals", style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                color: Theme.of(context).colorScheme.onBackground, fontSize: 24),
+                color: Theme .of(context).colorScheme.onBackground, fontSize: 24),
             ),
-              onTap: (){},
+              onTap: (){onSelectScreen("meals");},
             ),
             ListTile(
               leading: Icon(Icons.filter_list),
               title: Text("Filters", style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: Theme.of(context).colorScheme.onBackground, fontSize: 24),
               ),
-              onTap: (){},
+              onTap: (){onSelectScreen("filters");},
             ),
           ],
         ),
