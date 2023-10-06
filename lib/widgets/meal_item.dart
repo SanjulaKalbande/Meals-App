@@ -39,14 +39,16 @@ class MealItem extends StatelessWidget {
         child: Stack(
           //stack multiple widgets above each other
           children: [
-            FadeInImage(
-              //displays image which fades in
-
-              placeholder: MemoryImage(kTransparentImage),
-              image: NetworkImage(meal.imageUrl),
-              fit: BoxFit.cover,
-              height: 200,
-              width: double.infinity,
+            Hero(
+              tag: meal.id,
+              child: FadeInImage(
+                //displays image which fades in
+                placeholder: MemoryImage(kTransparentImage),
+                image: NetworkImage(meal.imageUrl),
+                fit: BoxFit.cover,
+                height: 200,
+                width: double.infinity,
+              ),
             ),
             Positioned(
                 //on top of previous widget(Image)
